@@ -346,31 +346,43 @@
     </layout>
   </citation>
   <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
-    <layout>
-      <text variable="citation-number" suffix="."/>
-      <group delimiter=". " suffix=". ">
-        <text macro="author"/>
-        <text macro="title"/>
-      </group>
-      <group delimiter=" " suffix=". ">
-        <group delimiter=": ">
-          <text macro="chapter-marker"/>
-          <group delimiter=" ">
-            <text macro="editor"/>
-            <text macro="container-title"/>
-          </group>
+  <layout>
+    <text variable="citation-number" suffix="."/>
+    <group delimiter=". " suffix=". ">
+      <text macro="author"/>
+      <text macro="title"/>
+    </group>
+    <group delimiter=" " suffix=". ">
+      <group delimiter=": ">
+        <text macro="chapter-marker"/>
+        <group delimiter=" ">
+          <text macro="editor"/>
+          <text macro="container-title"/>
         </group>
-        <text macro="publisher"/>
-        <group>
-          <text macro="date"/>
-          <text macro="journal-location"/>
-          <text macro="pages"/>
-        </group>
-        <text macro="webpage-part"/>
       </group>
-      <text macro="collection-details" suffix=". "/>
-      <text macro="report-details" suffix=". "/>
-      <text macro="access"/>
-    </layout>
-  </bibliography>
+      <text macro="publisher"/>
+      <group>
+        <text macro="date"/>
+        <text macro="journal-location"/>
+        <text macro="pages"/>
+        <text macro="doi"/> <!-- Línea agregada -->
+      </group>
+      <text macro="webpage-part"/>
+    </group>
+    <text macro="collection-details" suffix=". "/>
+    <text macro="report-details" suffix=". "/>
+    <text macro="access"/>
+  </layout>
+</bibliography>
+
+<!-- Macro para el DOI -->
+<macro name="doi">
+  <choose>
+    <if variable="DOI">
+      <group delimiter=" " prefix="https://doi.org/">
+        <text variable="DOI"/>
+      </group>
+    </if>
+  </choose>
+</macro>
 </style>
